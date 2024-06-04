@@ -50,7 +50,7 @@
       >
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Inicio</a>
+            <a class="nav-link" aria-current="page" routerLink="/">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" (click)="scrollTo('content')">Prestamos</a>
@@ -69,40 +69,36 @@
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Nombre</th>
-              <th scope="col">Estado</th>
+              <th scope="col">Horario Disponible</th>
               <th scope="col">Disponibilidad</th>
               <th scope="col">Reservar</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngFor="let recurso of listaRecursos">
             <tr scope="row">
-              <td>1</td>
+              <td>{{ recurso[0] }}</td>
               <td>
-                Cancha los alpes
+                {{ recurso[8] }}
+                <small class="d-block">Descripcion: {{ recurso[9] }}</small>
+                <small class="d-block">Detalles: {{ recurso[3] }}</small>
                 <small class="d-block"
-                  >Descripcion: La cancha de futbol los alpes es bien
-                  rara</small
+                  >Capacidad - Cantidad: {{ recurso[2] }}</small
                 >
               </td>
-              <td>Si</td>
-              <td>Si</td>
-              <td><button class="button-3" role="button">equis de</button></td>
-            </tr>
-            <tr class="spacer">
-              <td colspan="100"></td>
-            </tr>
-            <tr scope="row">
-              <td>2</td>
               <td>
-                Cancha los muchachos
-                <small class="d-block"
-                  >Descripcion: La cancha de futbol los muchachos es bien
-                  rara</small
-                >
+                {{ recurso[6] }}<br />
+                - <br />{{ recurso[7] }}
               </td>
-              <td>Si</td>
-              <td>Si</td>
-              <td><button class="button-3" role="button">equis de</button></td>
+              <td>{{ recurso[10] }}</td>
+              <td>
+                <button
+                  class="button-3"
+                  role="button"
+                  (click)="reservar(recurso[0])"
+                >
+                  Reservar Recurso
+                </button>
+              </td>
             </tr>
             <tr class="spacer">
               <td colspan="100"></td>

@@ -35,17 +35,37 @@
       <input type="checkbox" id="check" />
       <div class="login form">
         <header>Inicio de Sesión</header>
-        <form action="#">
-          <input type="text" placeholder="Ingrese su correo electronico" />
-          <input type="password" placeholder="Ingrese su contraseña" />
+        <form action="#" [formGroup]="formularioLogin">
+          <input
+            type="text"
+            placeholder="Ingrese su correo electronico"
+            formControlName="correo"
+          />
+          <input
+            type="password"
+            placeholder="Ingrese su contraseña"
+            formControlName="contrasena"
+          />
           <a href="#">¿Olvido su contraseña?</a>
-          <input type="button" class="button" value="Iniciar sesion" />
+          <input
+            type="button"
+            class="button"
+            value="Iniciar sesion"
+            (click)="revisarLogIn()"
+          />
         </form>
         <div class="signup">
           <span class="signup"
             >¿No tiene una cuenta?
             <label for="check">Registrarse</label>
           </span>
+        </div>
+        <div
+          *ngIf="this.hayError"
+          class="alert alert-danger error"
+          role="alert"
+        >
+          {{ this.mensajeErrorLogin }}
         </div>
       </div>
       <div class="registration form">
@@ -83,6 +103,13 @@
             >¿Ya tiene una cuenta?
             <label for="check">Iniciar sesión</label>
           </span>
+        </div>
+        <div
+          *ngIf="this.hayError"
+          class="alert alert-danger error"
+          role="alert"
+        >
+          {{ this.mensajeErrorRegistro }}
         </div>
       </div>
     </div>
