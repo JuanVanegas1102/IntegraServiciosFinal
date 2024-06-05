@@ -10,3 +10,15 @@ export interface LogResponse{
 export interface categoriaSeleccionadaResponse{
     data:Array<any>
 }
+
+export interface reservaActivaResponse{
+    data:Array<any>
+}
+
+export interface historialReservaResponse{
+    data:Array<any>
+}
+
+export interface reservaSeleccionadaResponse{
+    data:Array<any>
+}

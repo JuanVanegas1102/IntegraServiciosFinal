@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 11g                           */
-/* Created on:     04/06/2024 01:51:23 p. m.                    */
+/* Created on:     04/06/2024 08:26:09 p. m.                    */
 /*==============================================================*/
 
 
@@ -130,6 +130,7 @@ create table RESERVA
    IDRESERVA            NUMBER(10)           not null,
    IDPERSONA            NUMBER(10)           not null,
    IDRECURSO            VARCHAR2(10)         not null,
+   FECHARESERVA         DATE                 not null,
    INICIORESERVA        DATE                 not null,
    FINRESERVA           DATE                 not null,
    ESTADO               VARCHAR2(20)         not null,

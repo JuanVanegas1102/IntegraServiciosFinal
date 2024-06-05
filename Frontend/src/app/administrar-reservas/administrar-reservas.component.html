@@ -77,43 +77,46 @@
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Estado</th>
+                <th scope="col">Fecha Reserva</th>
                 <th scope="col">Horario reservado</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Detalle</th>
                 <th scope="col">Cancelar reserva</th>
+                <th scope="col">Terminar reserva</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let reserva of listaReservaActiva">
               <tr scope="row">
-                <td>1</td>
+                <td>{{ reserva[0] }}</td>
                 <td>
-                  Cancha los alpes
-                  <small class="d-block"
-                    >Descripcion: La cancha de futbol los alpes es bien
-                    rara</small
+                  {{ reserva[1] }}
+                  <small class="d-block">Descripcion: {{ reserva[2] }}</small>
+                  <small class="d-block">Detalles: {{ reserva[3] }}</small>
+                </td>
+                <td>{{ reserva[4] }}</td>
+                <td>
+                  {{ reserva[5] }}<br />
+                  - <br />{{ reserva[6] }}
+                </td>
+                <td>{{ reserva[7] }}</td>
+                <td>{{ reserva[8] }}</td>
+                <td>
+                  <button
+                    class="button-3"
+                    role="button"
+                    (click)="cancelarReserva(reserva[0])"
                   >
+                    Cancelar reserva
+                  </button>
                 </td>
-                <td>Si</td>
-                <td>Si</td>
                 <td>
-                  <button class="button-3" role="button">equis de</button>
-                </td>
-              </tr>
-              <tr class="spacer">
-                <td colspan="100"></td>
-              </tr>
-              <tr scope="row">
-                <td>2</td>
-                <td>
-                  Cancha los muchachos
-                  <small class="d-block"
-                    >Descripcion: La cancha de futbol los muchachos es bien
-                    rara</small
+                  <button
+                    class="button-5"
+                    role="button"
+                    (click)="terminarReserva(reserva[0])"
                   >
-                </td>
-                <td>Si</td>
-                <td>Si</td>
-                <td>
-                  <button class="button-3" role="button">equis de</button>
+                    Terminar reserva
+                  </button>
                 </td>
               </tr>
               <tr class="spacer">
@@ -134,40 +137,27 @@
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Estado</th>
+                <th scope="col">Fecha Reserva</th>
                 <th scope="col">Horario reservado</th>
-                <th scope="col">Reservado por</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Detalle</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let reserva of listaHistorialReserva">
               <tr scope="row">
-                <td>1</td>
+                <td>{{ reserva[0] }}</td>
                 <td>
-                  Cancha los alpes
-                  <small class="d-block"
-                    >Descripcion: La cancha de futbol los alpes es bien
-                    rara</small
-                  >
+                  {{ reserva[1] }}
+                  <small class="d-block">Descripcion: {{ reserva[2] }}</small>
+                  <small class="d-block">Detalles: {{ reserva[3] }}</small>
                 </td>
-                <td>Si</td>
-                <td>Si</td>
-                <td>No</td>
-              </tr>
-              <tr class="spacer">
-                <td colspan="100"></td>
-              </tr>
-              <tr scope="row">
-                <td>2</td>
+                <td>{{ reserva[4] }}</td>
                 <td>
-                  Cancha los muchachos
-                  <small class="d-block"
-                    >Descripcion: La cancha de futbol los muchachos es bien
-                    rara</small
-                  >
+                  {{ reserva[5] }}<br />
+                  - <br />{{ reserva[6] }}
                 </td>
-                <td>Si</td>
-                <td>Si</td>
-                <td>No</td>
+                <td>{{ reserva[7] }}</td>
+                <td>{{ reserva[8] }}</td>
               </tr>
               <tr class="spacer">
                 <td colspan="100"></td>

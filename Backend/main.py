@@ -21,6 +21,15 @@ class persona(BaseModel):
 class seleccion(BaseModel):
     seleccion: str
 
+class reserva(BaseModel):
+    idRecurso: str
+    fechaReserva: str
+    inicioReserva: str
+    finReserva: str
+
+class reservaCancelar(BaseModel):
+    idReserva: int    
+
 app = FastAPI()
 
 origins = [
@@ -60,3 +69,28 @@ async def root(s:seleccion):
 async def root():
     result = ConexionBD.consultarCategoriaSeleccionada()
     return {"data":result}
+
+@app.get('/listaReservaActiva')
+async def root():
+    result = ConexionBD.consultarReservasActivas()
+    return {"data":result}
+
+@app.get('/listaHistorialReserva')
+async def root():
+    result = ConexionBD.consultarHistorialReservas()
+    return {"data":result}
+
+@app.post('/agregarReserva')
+async def root(s:reserva):
+    ConexionBD.agregarReserva(s.idRecurso,s.fechaReserva, s.inicioReserva, s.finReserva)
+    return {"message":"hola mi loco"}
+
+@app.post('/cancelarReserva')
+async def root(s:reservaCancelar):
+    ConexionBD.cancelarReserva(s.idReserva)
+    return {"message":"hola mi loco"}
+
+@app.post('/terminarReserva')
+async def root(s:reservaCancelar):
+    ConexionBD.terminarReserva(s.idReserva)
+    return {"message":"hola mi loco"}
