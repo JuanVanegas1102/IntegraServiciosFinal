@@ -62,6 +62,8 @@ export class AdministrarReservasComponent {
   }
 
   cancelarReserva(dato:string){
+    this.obtenerReservasActivas();
+    this.obtenerHistorialReservas();
     
     const datosFormulario = {
       idReserva: dato
@@ -80,7 +82,9 @@ export class AdministrarReservasComponent {
   }
 
   terminarReserva(dato:string){
-    
+    this.obtenerReservasActivas();
+    this.obtenerHistorialReservas();
+
     const datosFormulario = {
       idReserva: dato
     }
